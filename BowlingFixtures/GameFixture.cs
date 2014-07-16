@@ -11,7 +11,8 @@ namespace BowlingFixtures
         public void ZeroScore()
         {
             Bowling.Game g = new Bowling.Game();
-            g.Roll(0);
+            for (int i = 0; i < 20;i++ )
+                g.Roll(0);
             Assert.AreEqual(0, g.GetScore());
         }
 
@@ -47,6 +48,45 @@ namespace BowlingFixtures
                
             }
             Assert.AreEqual(300, g.GetScore());
+        }
+
+        [TestMethod]
+        public void AllOnes()
+        {
+            Bowling.Game g = new Bowling.Game();
+            for (int i = 0; i < 20; i++)
+            {
+                g.Roll(1);
+               
+            }
+            Assert.AreEqual(20, g.GetScore());
+        }
+
+        [TestMethod]
+        public void AllNormals()
+        {
+            Bowling.Game g = new Bowling.Game();
+            g.Roll(3);
+            g.Roll(3);
+            g.Roll(3);
+            g.Roll(3);
+            g.Roll(4);
+            g.Roll(4);
+            g.Roll(4);
+            g.Roll(4);
+            g.Roll(5);
+            g.Roll(5);
+            g.Roll(5);
+            g.Roll(5);
+            g.Roll(6);
+            g.Roll(6);
+            g.Roll(6);
+            g.Roll(6);
+            g.Roll(7);
+            g.Roll(7);
+            g.Roll(7);
+            g.Roll(7);
+            Assert.AreEqual(111, g.GetScore());
         }
     }
 }
